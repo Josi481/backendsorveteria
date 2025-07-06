@@ -7,8 +7,8 @@ const Cobertura = sequelize.define("cobertura", {
     primaryKey: true,
     autoIncrement: true,
   },
-  nome_topp: DataTypes.STRING,
-  preco_topp: DataTypes.DECIMAL(10, 2),
+  nome_cobertura: DataTypes.STRING,
+  preco_cobertura: DataTypes.DECIMAL(10, 2),
 }, {
   tableName: "cobertura",
   timestamps: false,

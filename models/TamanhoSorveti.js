@@ -1,15 +1,15 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database.js";
 import Tamanho from "./Tamanho.js";
-import Sorveti from "./Sorveti.js";
+import Sorvete from "./Sorvete.js";
 
-const TamanhoSorveti = sequelize.define("tamanho_sorveti", {
+const TamanhoSorvete = sequelize.define("tamanho_sorvete", {
   id_tamanho_sor: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  id_sorveti: {
+  id_sorvete: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -24,11 +24,11 @@ const TamanhoSorveti = sequelize.define("tamanho_sorveti", {
 });
 
 // Pedido 1:N DetalhePedido
-Tamanho.hasMany(TamanhoSorveti, { foreignKey: "id_tamanho" });
-TamanhoSorveti.belongsTo(Tamanho, { foreignKey: "id_tamanho" });
+Tamanho.hasMany(TamanhoSorvete, { foreignKey: "id_tamanho" });
+TamanhoSorvete.belongsTo(Tamanho, { foreignKey: "id_tamanho" });
 
 // Sorveti 1:N DetalhePedido
-Sorveti.hasMany(TamanhoSorveti, { foreignKey: "id_sorveti" });
-TamanhoSorveti.belongsTo(Sorveti, { foreignKey: "id_sorveti" });
+Sorvete.hasMany(TamanhoSorvete, { foreignKey: "id_sorvete" });
+TamanhoSorvete.belongsTo(Sorvete, { foreignKey: "id_sorvete" });
 
-export default TamanhoSorveti;
+export default TamanhoSorvete;
